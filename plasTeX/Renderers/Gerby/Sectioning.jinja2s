@@ -3,7 +3,17 @@ name: part chapter
 {{ obj }}
 
 
+name: chapter*
+<h1 id="{{ obj.id }}" class="tex-{{ obj.nodeName }}"><span data-tag="{{ obj.userdata['tag'] }}">{{ obj.ref }}</span> {{ obj.title }}</h1>
+{{ obj }}
+
+
 name: section
+<h2 id="{{ obj.id }}" class="tex-{{ obj.nodeName }}"><span data-tag="{{ obj.userdata['tag'] }}">{{ obj.ref }}</span> {{ obj.title }}</h2>
+{{ obj }}
+
+
+name: section*
 <h2 id="{{ obj.id }}" class="tex-{{ obj.nodeName }}"><span data-tag="{{ obj.userdata['tag'] }}">{{ obj.ref }}</span> {{ obj.title }}</h2>
 {{ obj }}
 
@@ -26,3 +36,4 @@ name: paragraph
 name: subparagraph, subsubparagraph
 <h6 id="{{ obj.id }}" class="tex-{{ obj.nodeName }}"><span data-tag="{{ obj.userdata['tag'] }}">{{ obj.ref }}</span> {{ obj.title }}</h6>
 {{ obj }}
+
