@@ -4,7 +4,7 @@ name: part chapter
 
 
 name: chapter*
-<h1 id="{{ obj.id }}" class="tex-{{ obj.nodeName }}"><span data-tag="{{ obj.userdata['tag'] }}">{{ obj.ref }}</span> {{ obj.title }}</h1>
+<h1 id="{{ obj.id }}" class="tex-{{ obj.nodeName }}"><span data-tag="{{ obj.userdata['tag'] }}"></span>{{ obj.title }}</h1>
 {{ obj }}
 
 
@@ -14,7 +14,7 @@ name: section
 
 
 name: section*
-<h2 id="{{ obj.id }}" class="tex-{{ obj.nodeName }}"><span data-tag="{{ obj.userdata['tag'] }}">{{ obj.ref }}</span> {{ obj.title }}</h2>
+<h2 id="{{ obj.id }}" class="tex-{{ obj.nodeName }}"><span data-tag="{{ obj.userdata['tag'] }}"></span>{{ obj.title }}</h2>
 {{ obj }}
 
 

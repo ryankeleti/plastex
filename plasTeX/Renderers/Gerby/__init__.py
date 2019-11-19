@@ -100,7 +100,7 @@ def decorateTags(node, labels):
     if node.nodeName != "hypertarget" and node.id in labels:
       node.userdata["tag"] = labels[node.id]
 
-      if node.nodeName not in ["part", "chapter", "section", "subsection", "subsubsection"]:
+      if node.nodeName not in ["part", "chapter", "chapter*", "section", "section*", "subsection", "subsubsection"]:
         node.userdata["propagate"] = True
 
   if node.nodeName == "proof":
@@ -315,3 +315,4 @@ def outputTree(node, depth=0):
 
   for child in node.childNodes:
     outputTree(child, depth + 1)
+
