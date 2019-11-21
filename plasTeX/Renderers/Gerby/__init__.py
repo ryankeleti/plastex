@@ -210,7 +210,7 @@ def checkLabels(document):
   while len(stack) > 0:
     node = stack.pop()
 
-    if node.nodeName in ["thmenv", "chapter", "section", "subsection", "subsubsection"]:
+    if node.nodeName in ["thmenv", "part", "chapter", "section", "subsection", "subsubsection"]:
       if node.id[0:3] == "a00" and hasattr(node.ref, "source"):
         print("%s %s does not have a label" % (node.thmName if node.nodeName == "thmenv" else node.nodeName, node.ref.source))
 
