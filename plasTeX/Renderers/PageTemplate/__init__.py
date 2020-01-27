@@ -17,6 +17,21 @@ from plasTeX.Renderers.PageTemplate.simpletal.simpleTALES import Context as TALC
 
 log = plasTeX.Logging.getLogger()
 
+def egaref(x):
+    m = re.match(r"(\d)\.(.*)", str(x))
+    if m is None:
+      return x
+    roman = m.group(1)
+    if roman == "1":
+        roman = "I"
+    elif roman == "2":
+        roman = "II"
+    elif roman == "3":
+        roman = "III"
+    elif roman == "4":
+        roman = "IV"
+    return roman + "." + m.group(2)
+
 # Support for Jinja2 templates
 try: 
     from jinja2 import Environment, contextfunction
@@ -37,6 +52,7 @@ else:
 
     def jinja2template(s, encoding='utf8'):
         env = Environment(trim_blocks=True, lstrip_blocks=True)
+        env.globals['egaref'] = egaref
         env.globals['debug'] = debug
 
         def renderjinja2(obj, s=s):
