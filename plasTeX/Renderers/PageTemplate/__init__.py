@@ -17,20 +17,26 @@ from plasTeX.Renderers.PageTemplate.simpletal.simpleTALES import Context as TALC
 
 log = plasTeX.Logging.getLogger()
 
+def egaroman(x):
+    roman = "0"
+    if x == "1":
+        roman = "I"
+    elif x == "2":
+        roman = "II"
+    elif x == "3":
+        roman = "III"
+    elif x == "4":
+        roman = "IV"
+    return roman
+
 def egaref(x):
     m = re.match(r"(\d)\.(.*)", str(x))
     if m is None:
-      return x
-    roman = m.group(1)
-    if roman == "1":
-        roman = "I"
-    elif roman == "2":
-        roman = "II"
-    elif roman == "3":
-        roman = "III"
-    elif roman == "4":
-        roman = "IV"
-    return roman + "." + m.group(2)
+        m = re.match(r"(\d)", str(x))
+        if m is None:
+            return x
+        return egaroman(m.group(1))
+    return egaroman(m.group(1)) + "." + m.group(2)
 
 # Support for Jinja2 templates
 try: 

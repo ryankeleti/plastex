@@ -1,5 +1,5 @@
 name: part chapter
-<h1 id="{{ obj.id }}" class="tex-{{ obj.nodeName }}"><span data-tag="{{ obj.userdata['tag'] }}">{{ obj.ref }}</span> {{ obj.title }}</h1>
+<h1 id="{{ obj.id }}" class="tex-{{ obj.nodeName }}"><span data-tag="{{ obj.userdata['tag'] }}">{{ egaref(obj.ref) }}</span> {{ obj.title }}</h1>
 {{ obj }}
 
 
@@ -9,7 +9,7 @@ name: chapter*
 
 
 name: section
-<h2 id="{{ obj.id }}" class="tex-{{ obj.nodeName }}"><span data-tag="{{ obj.userdata['tag'] }}">{{ obj.ref }}</span> {{ obj.title }}</h2>
+<h2 id="{{ obj.id }}" class="tex-{{ obj.nodeName }}"><span data-tag="{{ obj.userdata['tag'] }}">{{ egaref(obj.ref) }}</span> {{ obj.title }}</h2>
 {{ obj }}
 
 
@@ -19,7 +19,7 @@ name: section*
 
 
 name: subsection
-<h3 id="{{ obj.id }}" class="tex-{{ obj.nodeName }}"><span data-tag="{{ obj.userdata['tag'] }}">{{ obj.ref }}</span> {{ obj.title }}</h3>
+<h3 id="{{ obj.id }}" class="tex-{{ obj.nodeName }}"><span data-tag="{{ obj.userdata['tag'] }}">{{ egaref(obj.ref) }}</span> {{ obj.title }}</h3>
 {{ obj }}
 
 
