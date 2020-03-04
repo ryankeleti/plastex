@@ -186,6 +186,29 @@ def partsList(document):
 
   return parts
 
+
+def chaptersList(document):
+  """Make an association between chapters and sections"""
+  chapters = dict()
+  stack = list()
+
+  stack.extend(document.childNodes)
+  current = None
+
+  while len(stack) > 0:
+    node = stack.pop()
+
+    if node.nodeName == "chapter":
+      current = node.ref.source
+      chapters[current] = list()
+    elif node.nodeName == "section" and current != None:
+      chapters[current].append(node.ref.source)
+
+    stack.extend(node.childNodes)
+
+  return chapters
+
+
 def copyBibliographies(document):
   """Copy bibliography files by looking for bibliography elements"""
   stack = list()
@@ -283,8 +306,11 @@ class Gerby(_Renderer):
 
     # associate parts to chapters
     parts = partsList(document)
+#    chapters = chaptersList(document)
     with open("parts.json", "w") as f:
       json.dump(parts, f)
+#    with open("chapters.json", "w") as f:
+#      json.dump(chapters, f)
 
     _Renderer.render(self, document)
 

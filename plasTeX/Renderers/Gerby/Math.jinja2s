@@ -3,7 +3,7 @@ name: math DeclareMathOperator
 
 name: ensuremath eqnarray* align* gather* flalign flalign* \
       multline multline* alignat alignat* split displaymath equation*
-<div class="equation">
+<div {% if "xymatrix" in obj.source %}class="equation-xymatrix"{% else %}class="equation"{% endif %}>
   {{ obj.source }}
 </div>
 
